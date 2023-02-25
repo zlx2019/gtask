@@ -43,7 +43,7 @@ func Run(engine *gin.Engine, serverName, serverPort string) {
 	<-exit
 
 	// 信号接收到后,需要一定的时间释放相应的资源。 这里延迟3秒,模拟释放资源
-	closeCtx, cancel := context.WithTimeout(context.Background(), time.Second*3)
+	closeCtx, cancel := context.WithTimeout(context.Background(), time.Second*1)
 	defer cancel()
 	// 停止服务
 	if err := server.Shutdown(closeCtx); err != nil {
