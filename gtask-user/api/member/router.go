@@ -16,7 +16,7 @@ func init() {
 // Route Member的路由映射
 func (m *RouterMember) Route(e *gin.Engine) {
 	// member的处理函数
-	hm := &HandlerMember{}
-	//登录路由
-	e.GET("/project/login/getCaptcha", hm.MemberLogin)
+	hm := New()
+	// 获取手机验证码
+	e.POST("/project/login/getCaptcha", hm.GetSms)
 }
