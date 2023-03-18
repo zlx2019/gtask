@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"zero.com/gtask-common/session"
 )
 
 // 所有要注册的路由接口实现
@@ -18,4 +19,5 @@ func InitRouter(engine *gin.Engine) {
 	for _, router := range routers {
 		router.Route(engine)
 	}
+	session.Logger.Info("Gin Router Load Success")
 }

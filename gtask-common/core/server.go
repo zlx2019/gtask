@@ -9,6 +9,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	. "zero.com/gtask-common/session"
 )
 
 // Run 	服务优雅启动与停止
@@ -23,12 +24,11 @@ func Run(engine *gin.Engine, serverName, serverPort string) {
 	}
 	// 这里通过一个协程来开启 http服务,保证服务能够主动性的优雅停止
 	go func() {
-		log.Printf("HTTP Server %s Running Port In %s \n", serverName, server.Addr)
+		Logger.Infof("HTTP Server %s Running Port In %s \n", serverName, server.Addr)
 		// 启动
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalln(err)
+			Logger.Panicf("HTTP Server %s Running Error: %s", err.Error())
 		}
-
 	}()
 
 	// 由于服务由一个协程开启的,所以主协程这里我们需要手动阻塞一下,直到接受到停止信号
@@ -53,7 +53,7 @@ func Run(engine *gin.Engine, serverName, serverPort string) {
 	// 等待5秒时间过后,结束程序.
 	select {
 	case <-closeCtx.Done():
-		log.Println("Wait Close Resource Timeout...")
+		Logger.Info("Wait Close Resource Timeout...")
 	}
-	log.Println("HTTP Server Shutdown Success")
+	Logger.Info("HTTP Server Shutdown Success")
 }

@@ -94,5 +94,8 @@ func FailWithCodeMessage(code int, message string, ctx *gin.Context) {
 
 // Result 将结果响应回客户端
 func Result(code int, data any, message string, ctx *gin.Context) {
+	if message == "" {
+		message = errors.Message(errors.ErrCode(code))
+	}
 	ctx.JSON(http.StatusOK, Just(code, data, message))
 }
