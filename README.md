@@ -13,3 +13,13 @@ Go 实现任务协同系统
 - deploy: 部署相关
 - test: 测试文件
 - api: 开放的api接口
+
+## 技术选项
+- gin: Web服务组件
+- gorm: 数据访问组件
+- logrus: 日志组件
+- redis: 缓存
+- ant: 协程池
+- grpc: 服务通信
+- nacos: 配置中心
+- viper: 配置读取组件

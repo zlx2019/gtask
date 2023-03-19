@@ -5,6 +5,7 @@ import (
 	. "zero.com/gtask-common/core"
 	_ "zero.com/gtask-common/initialize"
 	"zero.com/gtask-common/middleware"
+	"zero.com/gtask-common/session"
 	_ "zero.com/gtask-user/api"
 	"zero.com/gtask-user/router"
 )
@@ -17,5 +18,6 @@ func main() {
 	// 初始化路由
 	router.InitRouter(engine)
 	// 启动服务 服务名 端口
-	Run(engine, "task-user", ":9090")
+	server := session.Configure.Server
+	Run(engine, server.Name, server.Addr)
 }

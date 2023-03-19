@@ -1,0 +1,13 @@
+nacos:
+  # 是否启用配置中心,如果启用则读取配置中心的配置文件,否则读取本地的.
+  enable: false
+  # nacos配置中心配置
+  addr: 127.0.0.1:8848
+  username: summer
+  password: summer
+  # 命名空间
+  namespace: xxx
+  #分组
+  group: Dev
+  # 配置文件名称
+  name: task-user-dev.yml

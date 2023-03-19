@@ -1,0 +1,18 @@
+# 本地配置文件
+
+# 服务配置
+server:
+  # 服务名
+  name: task-user
+  # 服务IP与端口
+  addr: 0.0.0.0:9090
+
+# Redis配置
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: ""
+  db: 0
+
+# 日志配置
+logger: xxx
