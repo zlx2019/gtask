@@ -7,11 +7,6 @@
 
 package main
 
-import (
-	"fmt"
-	"zero.com/gtask-common/utils"
-)
-
 func main() {
-	fmt.Println(utils.RandomNumberCode(6))
+
 }
